@@ -1,0 +1,60 @@
+Personal hygiene routine.
+
+A basic daily routine includes washing the face and hands, brushing teeth at
+least twice a day, showering or bathing regularly, and wearing clean clothes.
+Precondition: water, soap, and a clean towel are available. Steps for
+showering: adjust water to a comfortable temperature before stepping in, wash
+with soap starting from the top of the body downward, rinse thoroughly, turn
+off the water, and dry off before dressing. Success condition: skin and hair
+are clean and the person feels refreshed rather than still uncomfortable.
+
+Failure case: if the water heater is not working and only cold water is
+available, a person may choose to wait, use a different bathroom if one
+exists, or accept a quick cold wash if hygiene need is urgent; this is a
+judgment call based on how uncomfortable waiting would be versus how
+unpleasant the cold water is.
+
+---
+
+Restroom routines.
+
+Using the restroom promptly when bladder pressure is noticeable, rather than
+delaying repeatedly, avoids discomfort and possible accidents. After using
+the toilet, flush, wash hands with soap for a reasonable amount of time, and
+dry them. If the toilet does not flush properly or continues running
+afterward, that is worth reporting or addressing rather than ignoring
+repeatedly, since it wastes water and may indicate a developing problem.
+
+---
+
+Laundry.
+
+Steps: sort clothes by color and fabric type where practical, load the
+washing machine without overfilling it, add an appropriate amount of
+detergent, select a cycle matched to the fabric, and start the machine.
+Precondition: the machine is available and not already in use by someone
+else's load. When the cycle finishes, move clothes to the dryer promptly or
+hang them to air dry, since leaving wet clothes sitting too long can cause a
+musty smell requiring a rewash. Once dry, fold or hang clothes and put them
+away rather than leaving them in a pile indefinitely.
+
+Failure case: if a colored item is accidentally washed with whites and causes
+discoloration, note which item caused it, separate that item in the future,
+and treat the affected clothing with an appropriate stain approach or accept
+the discoloration if it cannot be corrected.
+
+---
+
+Cleaning and household organization.
+
+Regular light cleaning, such as wiping counters, sweeping floors, and putting
+items back in their designated places after use, prevents small messes from
+becoming large ones. When cleaning with any chemical product, read the label
+first, avoid mixing different cleaning chemicals unless the label specifically
+allows it, since some combinations produce dangerous fumes, and ventilate the
+room if the product has a strong smell.
+
+Organizing a household benefits from consistent places for commonly used
+items, such as keys, chargers, and important documents, so that time is not
+wasted searching. A short routine of returning items to their place after use
+is more effective than periodic large reorganizations alone.

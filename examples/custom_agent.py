@@ -7,7 +7,7 @@ with VirtualPersonSimulation.default(
     name="Mira",
 ) as sim:
     sim.agent.self_model.beliefs["purpose"] = (
-        "Maintain my virtual home, learn skills, and complete assigned tasks."
+        "Maintain my home, learn skills, and complete assigned tasks."
     )
     sim.agent.body.hunger = 0.70
     sim.agent.body.thirst = 0.60

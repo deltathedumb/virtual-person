@@ -16,6 +16,7 @@ dependencies = ["torch>=2.2"]
 virtual-person = "virtual_person.cli:main"
 virtual-person-trainer = "virtual_person.trainer_cli:main"
 virtual-person-trainer-ui = "virtual_person.trainer_ui:main"
+virtual-person-runtime = "virtual_person.runtime_ui:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

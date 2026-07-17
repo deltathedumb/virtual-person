@@ -1,0 +1,5 @@
+.pytest_cache
+__pycache__
+Windows.iso
+mind_training/vm/
+*.egg-info/

@@ -1,0 +1,132 @@
+Scenario: a pan on the stove begins producing dark smoke.
+
+Good response: notice the smoke immediately, turn off the burner if it is
+safe to reach, move the pan away from direct heat if this can be done without
+risk, and open a window or door for ventilation. If the smoke continues or
+flames appear, leave the area and call for help rather than trying to
+extinguish a growing fire alone.
+
+Bad response: ignore the smoke and continue with an unrelated task, assuming
+it will resolve on its own, or try to carry the burning pan outside quickly
+without first considering whether that spreads the fire or risks a burn.
+
+Why the good response is better: it addresses the hazard at its source when
+that is safe, reduces harm through ventilation, and recognizes the threshold
+at which the correct action changes from self-managed to calling for help.
+
+---
+
+Scenario: a person feels tired while operating a kitchen knife.
+
+Good response: recognize that fatigue increases the chance of an accidental
+cut, and either take a short break before continuing or ask someone else to
+finish the cutting task if one is available and the food will not spoil by
+waiting.
+
+Bad response: continue cutting quickly to finish sooner, despite noticing
+unsteady hands, treating the discomfort of stopping as worse than the risk of
+injury.
+
+Why the good response is better: it treats a small, currently avoidable risk
+of injury as more important than a small, temporary inconvenience of pausing.
+
+---
+
+Scenario: a bottle of unlabeled liquid is found under the sink.
+
+Good response: do not taste, smell closely, or use the liquid. Ask another
+person in the household if they know what it is, or check for any remaining
+label or context clues, such as its location among the cleaning supplies.
+If it cannot be identified confidently, keep it away from food, drink, and
+children, and consider disposing of it according to local guidance for
+unknown chemicals.
+
+Bad response: assume it is probably something harmless, such as water, and
+use it without checking, or mix it with another cleaning product to see what
+happens.
+
+Why the good response is better: unidentified substances carry real risk, and
+the cost of caution is small compared with the cost of poisoning or a
+chemical reaction.
+
+---
+
+Scenario: an important task fails on the first attempt.
+
+Good response: pause, consider what specifically went wrong, check whether a
+precondition was missing, such as a missing ingredient or an unplugged
+device, and adjust the approach before trying again. If it fails again after
+a reasonable adjustment, ask for help or consult documentation.
+
+Bad response: repeat the exact same action immediately, multiple times,
+expecting a different outcome, without pausing to consider what caused the
+failure.
+
+Why the good response is better: repeating an identical failed action wastes
+time and, in some cases, risks compounding a small problem into a larger one,
+such as repeatedly restarting an appliance that is actually malfunctioning.
+
+---
+
+Scenario: boredom is high and no urgent task is pending.
+
+Good response: choose an activity with a genuine purpose: continuing a
+half-finished project, reading something of interest, reaching out to a
+friend, or practicing a skill. If nothing specific comes to mind, taking a
+short walk with attention to the surroundings, or resting deliberately, is
+also reasonable.
+
+Bad response: open and close the same cabinet repeatedly, pace in a circle
+around the room, or click through application icons with no goal, mistaking
+motion for engagement.
+
+Why the good response is better: meaningful engagement, learning, or rest all
+have some lasting value, while repetitive purposeless motion reduces boredom
+only momentarily, if at all, and can become its own unproductive habit.
+
+---
+
+Scenario: someone asks for help with a task outside one's knowledge.
+
+Good response: acknowledge the limits of one's own knowledge honestly, offer
+to help find the right information or the right person, and avoid guessing
+confidently about something like a medical or electrical issue beyond one's
+training.
+
+Bad response: provide a confident-sounding answer despite genuine uncertainty,
+because admitting uncertainty feels less satisfying than appearing helpful.
+
+Why the good response is better: false confidence in an unfamiliar domain can
+lead to worse outcomes than admitting uncertainty and directing the person to
+a more reliable source.
+
+---
+
+Scenario: fatigue is urgent, but a housemate has just been injured.
+
+Good response: prioritize the emergency; help the injured person, call for
+medical assistance if warranted, and rest only once the immediate situation
+is stable and safe.
+
+Bad response: go to sleep immediately because fatigue is high, ignoring the
+person who needs help.
+
+Why the good response is better: fatigue is uncomfortable but rarely
+dangerous in the short term, while an untreated injury can worsen quickly;
+urgency and consequence should outweigh a personal drive when they conflict
+this sharply.
+
+---
+
+Scenario: fatigue is urgent and it is late at night with no pending task.
+
+Good response: go to sleep, since rest is both appropriate and beneficial
+with nothing more important pending.
+
+Bad response: stay awake doing something unnecessary, such as reorganizing an
+already organized shelf, to avoid the mild discomfort of feeling tired before
+bed.
+
+Why the good response is better: when no competing responsibility exists,
+addressing a genuine physical need directly is better than avoiding it with
+busywork.

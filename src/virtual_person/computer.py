@@ -24,6 +24,28 @@ class UIElement:
         }
 
 
+# Ordinary virtual goods. Prices and effects are plain data; a purchase only
+# ever succeeds if the caller-supplied balance covers the price, and the
+# world (not the computer) applies whatever in-simulation effect a good has.
+SHOP_CATALOG: dict[str, dict[str, Any]] = {
+    "groceries": {
+        "label": "Grocery delivery (eggs + water)",
+        "price": 8.0,
+        "effect": "restock_kitchen",
+    },
+    "hygiene_kit": {
+        "label": "Hygiene supplies",
+        "price": 4.0,
+        "effect": "restock_hygiene",
+    },
+    "movie_rental": {
+        "label": "Movie rental (leisure)",
+        "price": 5.0,
+        "effect": "leisure",
+    },
+}
+
+
 @dataclass(slots=True)
 class VirtualComputer:
     """A deterministic, host-isolated computer simulation."""
@@ -38,6 +60,7 @@ class VirtualComputer:
     mouse_x: int = 0
     mouse_y: int = 0
     task_complete: bool = False
+    last_purchase: str | None = None
 
     def power_on(self) -> str:
         self.powered_on = True
@@ -49,7 +72,7 @@ class VirtualComputer:
         if not self.powered_on:
             self.power_on()
         app = app.lower()
-        if app not in {"desktop", "notes", "browser", "terminal"}:
+        if app not in {"desktop", "notes", "browser", "terminal", "shop"}:
             raise ValueError(f"Unknown virtual application: {app}")
         self.active_app = app
         self.focused_element = {
@@ -68,6 +91,11 @@ class VirtualComputer:
             self.launch("browser")
         elif target in {"terminal_icon", "terminal_input"}:
             self.launch("terminal")
+        elif target in {"shop_icon"}:
+            self.launch("shop")
+        elif target in SHOP_CATALOG and self.active_app == "shop":
+            self.focused_element = target
+            return f"Selected {SHOP_CATALOG[target]['label']}."
         elif target == "submit_task":
             self.task_complete = bool(self.notes_text.strip())
             return "Submitted the current notes." if self.task_complete else "Nothing to submit."
@@ -119,14 +147,33 @@ class VirtualComputer:
         self.mouse_y = max(0, min(1079, int(y)))
         return f"Moved the virtual mouse to ({self.mouse_x}, {self.mouse_y})."
 
-    def observe(self) -> dict[str, Any]:
+    def observe(self, balance: float | None = None) -> dict[str, Any]:
         return {
             "powered_on": self.powered_on,
             "active_app": self.active_app,
             "mouse": [self.mouse_x, self.mouse_y],
             "elements": [element.as_dict() for element in self._elements()],
             "task_complete": self.task_complete,
+            "last_purchase": self.last_purchase,
+            "balance": balance,
         }
+
+    def purchase(self, item_id: str, balance: float) -> tuple[bool, str, float]:
+        """Attempt to buy ``item_id`` given the caller-supplied ``balance``.
+
+        Returns ``(ok, message, new_balance)``. The computer never holds or
+        mutates the balance itself; the world passes it in and applies the
+        resulting deduction and any in-simulation effect, the same way other
+        appliances mediate their effects through ``ApartmentWorld``.
+        """
+        item = SHOP_CATALOG.get(item_id)
+        if item is None:
+            return False, f"Unknown item: {item_id}", balance
+        price = float(item["price"])
+        if balance < price:
+            return False, f"Cannot afford {item['label']} (costs {price:.2f}).", balance
+        self.last_purchase = item_id
+        return True, f"Purchased {item['label']} for {price:.2f}.", balance - price
 
     def _elements(self) -> list[UIElement]:
         if not self.powered_on:
@@ -136,6 +183,17 @@ class VirtualComputer:
                 UIElement("notes_icon", "button", text="Notes"),
                 UIElement("browser_icon", "button", text="Browser"),
                 UIElement("terminal_icon", "button", text="Terminal"),
+                UIElement("shop_icon", "button", text="Shop"),
+            ]
+        if self.active_app == "shop":
+            return [
+                UIElement(
+                    item_id,
+                    "button",
+                    text=f"{item['label']} — {item['price']:.2f}",
+                    focused=self.focused_element == item_id,
+                )
+                for item_id, item in SHOP_CATALOG.items()
             ]
         if self.active_app == "notes":
             return [

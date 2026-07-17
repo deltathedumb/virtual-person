@@ -1,0 +1,92 @@
+{
+  "workspace": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training",
+  "sources": [
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\english\\starter_english.txt",
+      "category": "English",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\starter_procedures.txt",
+      "category": "Procedures",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\starter_safety.txt",
+      "category": "Safety/Judgment",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\behavior\\starter_behavior.jsonl",
+      "category": "Behavior",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\corpora\\sample_dictionary_dictionary.jsonl",
+      "category": "Dictionary",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\corpora\\bootstrap_behavior.jsonl",
+      "category": "Behavior",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\english\\conversations.txt",
+      "category": "English",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\english\\scenes_and_reasoning.txt",
+      "category": "English",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\cooking_and_food_safety.txt",
+      "category": "Procedures",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\hygiene_and_cleaning.txt",
+      "category": "Procedures",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\computer_use_and_scheduling.txt",
+      "category": "Procedures",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\safety\\paired_good_bad.txt",
+      "category": "Safety/Judgment",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\procedures\\apartment_object_use.txt",
+      "category": "Procedures",
+      "enabled": true
+    },
+    {
+      "path": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\raw\\behavior\\shop_and_tasks.jsonl",
+      "category": "Behavior",
+      "enabled": true
+    }
+  ],
+  "model": {
+    "profile": "CPU prototype",
+    "hidden_size": 96,
+    "layers": 2,
+    "ticks": 2,
+    "sequence_length": 160,
+    "batch_size": 2,
+    "epochs": 3,
+    "learning_rate": 0.0003
+  },
+  "training": {
+    "device": "cpu",
+    "seed": 0,
+    "validation_fraction": 0.05,
+    "last_stage": "Stage 1 \u2014 English and vocabulary",
+    "last_checkpoint": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\checkpoints\\stage1_language.pt"
+  }
+}

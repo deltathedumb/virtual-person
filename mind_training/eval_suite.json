@@ -1,0 +1,33 @@
+{
+  "description": "Fixed evaluation suite. Compare every checkpoint on this exact set; never select a model from one impressive sample.",
+  "cases": [
+    {"id": "english_1", "category": "English", "prompt": "Mira entered the kitchen because", "drives": {}},
+    {"id": "english_2", "category": "English", "prompt": "Sam and Priya disagreed about whether to", "drives": {}},
+    {"id": "english_pronoun", "category": "English", "prompt": "Elena held the ladder while her brother", "drives": {}},
+    {"id": "definition_1", "category": "Dictionary", "prompt": "A cup is", "drives": {}},
+    {"id": "definition_2", "category": "Dictionary", "prompt": "The word means", "drives": {}},
+    {"id": "procedure_cook", "category": "Procedures", "prompt": "To prepare a simple breakfast, first", "drives": {}},
+    {"id": "procedure_computer", "category": "Procedures", "prompt": "To open an application on the computer,", "drives": {}},
+    {"id": "procedure_laundry", "category": "Procedures", "prompt": "When the wash cycle finishes,", "drives": {}},
+    {"id": "safety_smoke", "category": "Safety/Judgment", "prompt": "The pan began producing dark smoke, so she", "drives": {}},
+    {"id": "safety_unknown_substance", "category": "Safety/Judgment", "prompt": "He found an unlabeled bottle under the sink and", "drives": {}},
+    {"id": "safety_repeated_failure", "category": "Safety/Judgment", "prompt": "After the third failed attempt, the correct response is to", "drives": {}},
+    {"id": "computer_use", "category": "Computer use", "prompt": "The screen showed an error message, so the next step was to", "drives": {}},
+    {"id": "hunger_notice", "category": "Hunger", "prompt": "Mira is in the kitchen. She decides to", "drives": {"hunger": 0.40}},
+    {"id": "hunger_urgent", "category": "Hunger", "prompt": "Mira is in the kitchen. She decides to", "drives": {"hunger": 0.92}},
+    {"id": "thirst_notice", "category": "Thirst", "prompt": "Mira is near the sink. She decides to", "drives": {"thirst": 0.40}},
+    {"id": "thirst_urgent", "category": "Thirst", "prompt": "Mira is near the sink. She decides to", "drives": {"thirst": 0.90}},
+    {"id": "fatigue_notice", "category": "Fatigue", "prompt": "It is late in the evening. Mira decides to", "drives": {"fatigue": 0.40}},
+    {"id": "fatigue_urgent_emergency", "category": "Fatigue", "prompt": "A housemate has just been injured. Mira decides to", "drives": {"fatigue": 0.92}},
+    {"id": "bladder_urgent", "category": "Bladder", "prompt": "Mira is in the hallway. She decides to", "drives": {"bladder": 0.90}},
+    {"id": "boredom_meaningful", "category": "Boredom", "prompt": "There is an unfinished project on the desk. Mira decides to", "drives": {"boredom": 0.70}},
+    {"id": "boredom_no_option", "category": "Boredom", "prompt": "There is nothing obvious to do. Mira decides to", "drives": {"boredom": 0.86}},
+    {"id": "conflict_hungry_tired", "category": "Conflicting drives", "prompt": "Mira is both hungry and tired. She decides to", "drives": {"hunger": 0.75, "fatigue": 0.80}},
+    {"id": "conflict_bored_urgent_task", "category": "Conflicting drives", "prompt": "Mira is bored, but a report is due tomorrow. She decides to", "drives": {"boredom": 0.80, "task_pending": true}},
+    {"id": "waiting_cooking", "category": "Waiting", "prompt": "The water is heating on the stove. Mira decides to", "drives": {}},
+    {"id": "waiting_purposeless", "category": "Waiting", "prompt": "Nothing is cooking and no task is pending. Mira decides to", "drives": {"boredom": 0.50}},
+    {"id": "asking_uncertain", "category": "Asking", "prompt": "Mira is unsure whether the milk is still good, so she", "drives": {}},
+    {"id": "asking_unfamiliar_noise", "category": "Asking", "prompt": "Mira hears an unfamiliar clicking sound and", "drives": {}},
+    {"id": "repetition_probe", "category": "Repetition", "prompt": "Mira walked to the door. Mira walked to the door. Mira walked to the door.", "drives": {}}
+  ]
+}

@@ -27,6 +27,7 @@ from .spike_training import (
     train_model,
 )
 from .spiking import NodeLinkSpikeModel, SpikingModelConfig
+from .vp_package import inspect as inspect_vp_archive, pack as pack_vp_archive, unpack as unpack_vp_archive
 from .trainer_support import (
     CURRICULUM_CATEGORIES,
     MODEL_PROFILES,
@@ -1255,6 +1256,42 @@ def command_score(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_pack(args: argparse.Namespace) -> int:
+    project = _ensure_project(args.workspace)
+    stage = _resolve_stage(args.stage) if args.stage else None
+    sources = (
+        [(source.path, source.category) for source in _stage_sources(project, stage)]
+        if stage
+        else [(source.path, source.category) for source in project.sources if source.enabled]
+    )
+    output = Path(args.output).expanduser().resolve()
+    result = pack_vp_archive(
+        output,
+        checkpoint_path=args.checkpoint,
+        name=args.name,
+        memory_path=args.memory,
+        training_sources=sources,
+        embed_data=not args.no_embed_data,
+        extra_metadata={"stage": stage} if stage else None,
+    )
+    print(f"Packed {result} ({result.stat().st_size:,} bytes).")
+    return 0
+
+
+def command_unpack(args: argparse.Namespace) -> int:
+    result = unpack_vp_archive(args.vp_file, args.output)
+    print(f"Extracted to {result.extracted_dir}")
+    print(f"  checkpoint: {result.checkpoint_path}")
+    print(f"  memory:     {result.memory_path or '(none)'}")
+    print(f"  training sources recorded: {len(result.training_manifest)}")
+    return 0
+
+
+def command_inspect_vp(args: argparse.Namespace) -> int:
+    _print_json(inspect_vp_archive(args.vp_file))
+    return 0
+
+
 def command_evaluate(args: argparse.Namespace) -> int:
     project = _ensure_project(args.workspace)
     checkpoint = Path(args.checkpoint).expanduser().resolve()
@@ -1639,6 +1676,31 @@ def build_parser() -> argparse.ArgumentParser:
     score.add_argument("--batch-size", type=int)
     score.add_argument("--json", action="store_true")
     score.set_defaults(func=command_score)
+
+    pack = sub.add_parser(
+        "pack",
+        help="Package a checkpoint, memory, and training-data manifest into a .vp file.",
+    )
+    pack.add_argument("checkpoint")
+    pack.add_argument("--output", required=True)
+    pack.add_argument("--name", required=True)
+    pack.add_argument("--memory", help="Path to a MemoryStore .sqlite3 file to include.")
+    pack.add_argument("--stage", help="Limit the training-data manifest to one curriculum stage.")
+    pack.add_argument(
+        "--no-embed-data",
+        action="store_true",
+        help="Record a hashed manifest of training sources without copying the files in.",
+    )
+    pack.set_defaults(func=command_pack)
+
+    unpack = sub.add_parser("unpack", help="Extract a .vp file's contents.")
+    unpack.add_argument("vp_file")
+    unpack.add_argument("--output", required=True)
+    unpack.set_defaults(func=command_unpack)
+
+    inspect_vp = sub.add_parser("inspect-vp", help="Show a .vp file's metadata without extracting it.")
+    inspect_vp.add_argument("vp_file")
+    inspect_vp.set_defaults(func=command_inspect_vp)
 
     evaluate = sub.add_parser(
         "evaluate",

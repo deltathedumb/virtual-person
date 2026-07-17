@@ -1,8 +1,12 @@
 """Python-native embodied virtual-person simulation."""
 
 from .agent import VirtualPerson
+from .economy import AssignedTask, TaskEconomy, TaskReview, TaskStatus
 from .env import VirtualPersonEnv
+from .renderer import Renderer, RendererConfig
 from .simulation import VirtualPersonSimulation
+from .vm_runtime import QemuActuators, QemuSensors, QemuVirtualMachine, QemuVmConfig, QmpClient
+from .vp_package import VpContents, build_training_manifest, inspect as inspect_vp, pack as pack_vp, unpack as unpack_vp
 from .real_world import (
     ActuatorSuite,
     EmergencyStop,
@@ -47,6 +51,22 @@ __all__ = [
     "VirtualPerson",
     "VirtualPersonEnv",
     "VirtualPersonSimulation",
+    "Renderer",
+    "RendererConfig",
+    "TaskEconomy",
+    "AssignedTask",
+    "TaskReview",
+    "TaskStatus",
+    "pack_vp",
+    "unpack_vp",
+    "inspect_vp",
+    "VpContents",
+    "build_training_manifest",
+    "QemuVirtualMachine",
+    "QemuVmConfig",
+    "QemuSensors",
+    "QemuActuators",
+    "QmpClient",
     "SpikingOutput",
     "SpikingModelConfig",
     "SpikingMind",

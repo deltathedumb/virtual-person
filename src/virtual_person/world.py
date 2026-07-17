@@ -5,6 +5,7 @@ from typing import Any
 
 from .body import BodyState
 from .computer import VirtualComputer
+from .economy import TaskEconomy
 from .types import Action, ActionKind, ActionResult
 
 
@@ -34,12 +35,14 @@ class ApartmentWorld:
         objects: dict[str, WorldObject],
         start_room: str,
         computer: VirtualComputer | None = None,
+        economy: TaskEconomy | None = None,
     ) -> None:
         self.rooms = rooms
         self.objects = objects
         self.agent_room = start_room
         self.inventory: set[str] = set()
         self.computer = computer or VirtualComputer()
+        self.economy = economy or TaskEconomy()
         self.dirty_dishes = 0
 
     @classmethod
@@ -177,7 +180,8 @@ class ApartmentWorld:
             "inventory": sorted(self.inventory),
             "dirty_dishes": self.dirty_dishes,
             "body": body.snapshot(),
-            "computer": self.computer.observe()
+            "economy": self.economy.snapshot(),
+            "computer": self.computer.observe(balance=self.economy.balance)
             if self.agent_room == "living_room"
             else None,
         }
@@ -290,6 +294,11 @@ class ApartmentWorld:
                 message = self.computer.power_on()
             elif operation.startswith("launch:"):
                 message = self.computer.launch(operation.split(":", 1)[1])
+            elif operation.startswith("purchase:"):
+                return self._purchase(operation.split(":", 1)[1], body)
+            elif operation == "basic_job":
+                payout = self.economy.do_basic_job()
+                return ActionResult(True, f"Did basic work for {payout:.2f}.", 900.0, 0.05)
             else:
                 return ActionResult(False, f"Unknown computer operation: {operation}", 1.0, -0.1)
             return ActionResult(True, message, 3.0, 0.1)
@@ -298,6 +307,33 @@ class ApartmentWorld:
             return ActionResult(True, f"Sat on {target}.", 10.0, 0.02)
 
         return ActionResult(False, f"No defined use for {target}.", 1.0, -0.1)
+
+    def _purchase(self, item_id: str, body: BodyState) -> ActionResult:
+        ok, message, new_balance = self.computer.purchase(item_id, self.economy.balance)
+        if not ok:
+            return ActionResult(False, message, 2.0, -0.1)
+        self.economy.balance = new_balance
+
+        if item_id == "groceries":
+            fridge = self.objects.get("fridge")
+            if fridge is not None and not fridge.is_open:
+                fridge.is_open = True
+            eggs, water = self.objects.get("eggs"), self.objects.get("water")
+            if eggs is not None:
+                eggs.room, eggs.container = "kitchen", "fridge"
+                eggs.properties.update({"raw": True, "cooked": False, "name": "eggs"})
+            if water is not None:
+                water.room, water.container = "kitchen", "fridge"
+                water.properties["liters"] = 0.45
+        elif item_id == "hygiene_kit":
+            # No separate hygiene-item slot exists in the simulation, so this
+            # is represented as an immediate hygiene top-up, the same effect
+            # a shower produces, just smaller and delivered instantly.
+            body.hygiene = min(1.0, body.hygiene + 0.35)
+        # "movie_rental" and any other leisure effect are represented purely
+        # through the reward/cognitive-drive signal below, not world state.
+
+        return ActionResult(True, message, 30.0, 0.15)
 
     def _eat(self, target: str | None, body: BodyState) -> ActionResult:
         obj = self._require_reachable(target)

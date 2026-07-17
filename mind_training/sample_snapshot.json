@@ -1,0 +1,359 @@
+{
+  "layout": {
+    "bedroom": {
+      "x": 0,
+      "y": 0,
+      "w": 4,
+      "h": 4
+    },
+    "bathroom": {
+      "x": 4,
+      "y": 0,
+      "w": 3,
+      "h": 4
+    },
+    "hallway": {
+      "x": 0,
+      "y": 4,
+      "w": 7,
+      "h": 2
+    },
+    "kitchen": {
+      "x": 7,
+      "y": 0,
+      "w": 4,
+      "h": 6
+    },
+    "living_room": {
+      "x": 0,
+      "y": 6,
+      "w": 11,
+      "h": 4
+    }
+  },
+  "rooms": {
+    "bedroom": [
+      "hallway"
+    ],
+    "hallway": [
+      "bathroom",
+      "bedroom",
+      "kitchen",
+      "living_room"
+    ],
+    "bathroom": [
+      "hallway"
+    ],
+    "kitchen": [
+      "hallway"
+    ],
+    "living_room": [
+      "hallway"
+    ]
+  },
+  "objects": [
+    {
+      "id": "bed",
+      "kind": "bed",
+      "room": "bedroom",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "toilet",
+      "kind": "toilet",
+      "room": "bathroom",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "shower",
+      "kind": "shower",
+      "room": "bathroom",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "bathroom_sink",
+      "kind": "sink",
+      "room": "bathroom",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "fridge",
+      "kind": "refrigerator",
+      "room": "kitchen",
+      "portable": false,
+      "openable": true,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "eggs",
+      "kind": "food",
+      "room": "kitchen",
+      "portable": true,
+      "openable": false,
+      "is_open": false,
+      "container": "fridge"
+    },
+    {
+      "id": "water",
+      "kind": "drink",
+      "room": "kitchen",
+      "portable": true,
+      "openable": false,
+      "is_open": false,
+      "container": "fridge"
+    },
+    {
+      "id": "pan",
+      "kind": "cookware",
+      "room": "kitchen",
+      "portable": true,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "plate",
+      "kind": "dish",
+      "room": "kitchen",
+      "portable": true,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "stove",
+      "kind": "stove",
+      "room": "kitchen",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "kitchen_sink",
+      "kind": "sink",
+      "room": "kitchen",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "table",
+      "kind": "table",
+      "room": "kitchen",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "computer",
+      "kind": "computer",
+      "room": "living_room",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    },
+    {
+      "id": "sofa",
+      "kind": "seat",
+      "room": "living_room",
+      "portable": false,
+      "openable": false,
+      "is_open": false,
+      "container": null
+    }
+  ],
+  "snapshot": {
+    "sim_time": 32467.420000000002,
+    "day": 1,
+    "hour": 9.018727777777778,
+    "agent": {
+      "self": {
+        "name": "Mira",
+        "age": 24,
+        "identity": "embodied person with a robotic body",
+        "home_location": "apartment",
+        "beliefs": {
+          "embodiment": "My robotic body is the body through which I sense and act.",
+          "environment": "I exist and act in a physical environment through sensors and actuators.",
+          "continuity": "My memories connect my experiences across time."
+        },
+        "relationships": {}
+      },
+      "room": "living_room",
+      "activity": "idle",
+      "goal": "IDLE",
+      "body": {
+        "hunger": 0.28062433333333336,
+        "thirst": 0.2510405555555556,
+        "fatigue": 0.23572838888888892,
+        "bladder": 0.1811206910245371,
+        "hygiene": 0.8897918888888889,
+        "health": 1.0,
+        "social": 0.26833709999999994,
+        "body_temperature_c": 36.8,
+        "calories_available": 1813.2310555555555,
+        "hydration": 0.8744797222222223,
+        "asleep": false
+      },
+      "inventory": [],
+      "daily_computer_task_done": true,
+      "action_count": 10,
+      "failures": 0
+    },
+    "world": {
+      "room": "living_room",
+      "neighbors": [
+        "hallway"
+      ],
+      "visible_objects": [
+        {
+          "id": "computer",
+          "kind": "computer",
+          "portable": false,
+          "openable": false,
+          "is_open": false,
+          "properties": {}
+        },
+        {
+          "id": "sofa",
+          "kind": "seat",
+          "portable": false,
+          "openable": false,
+          "is_open": false,
+          "properties": {}
+        }
+      ],
+      "inventory": [],
+      "dirty_dishes": 0,
+      "body": {
+        "hunger": 0.28062433333333336,
+        "thirst": 0.2510405555555556,
+        "fatigue": 0.23572838888888892,
+        "bladder": 0.1811206910245371,
+        "hygiene": 0.8897918888888889,
+        "health": 1.0,
+        "social": 0.26833709999999994,
+        "body_temperature_c": 36.8,
+        "calories_available": 1813.2310555555555,
+        "hydration": 0.8744797222222223,
+        "asleep": false
+      },
+      "computer": {
+        "powered_on": true,
+        "active_app": "notes",
+        "mouse": [
+          0,
+          0
+        ],
+        "elements": [
+          {
+            "id": "notes_editor",
+            "role": "textbox",
+            "text": "",
+            "value": "Daily report: I checked my needs, maintained the apartment, and completed the assigned virtual computer task.",
+            "focused": true,
+            "enabled": true
+          },
+          {
+            "id": "submit_task",
+            "role": "button",
+            "text": "Submit",
+            "value": "",
+            "focused": false,
+            "enabled": true
+          }
+        ],
+        "task_complete": true
+      }
+    },
+    "recent_events": [
+      {
+        "time": 28825.0,
+        "kind": "move",
+        "message": "Moved from bedroom to hallway.",
+        "ok": true,
+        "reward": 0.01902638309582359
+      },
+      {
+        "time": 28850.0,
+        "kind": "move",
+        "message": "Moved from hallway to living_room.",
+        "ok": true,
+        "reward": 0.0190249784496249
+      },
+      {
+        "time": 28853.0,
+        "kind": "use",
+        "message": "The virtual computer powered on.",
+        "ok": true,
+        "reward": 0.09989569265139939
+      },
+      {
+        "time": 28856.0,
+        "kind": "use",
+        "message": "Opened notes.",
+        "ok": true,
+        "reward": 0.09989567666478524
+      },
+      {
+        "time": 28866.72,
+        "kind": "type_text",
+        "message": "Typed 109 characters into Notes.",
+        "ok": true,
+        "reward": -0.0003729124381833815
+      },
+      {
+        "time": 28867.420000000002,
+        "kind": "click",
+        "message": "Submitted the current notes.",
+        "ok": true,
+        "reward": -2.4357745863734515e-05
+      },
+      {
+        "time": 29767.420000000002,
+        "kind": "wait",
+        "message": "Waited for 900 seconds.",
+        "ok": true,
+        "reward": -0.03203471427710819
+      },
+      {
+        "time": 30667.420000000002,
+        "kind": "wait",
+        "message": "Waited for 900 seconds.",
+        "ok": true,
+        "reward": -0.03347399852565491
+      },
+      {
+        "time": 31567.420000000002,
+        "kind": "wait",
+        "message": "Waited for 900 seconds.",
+        "ok": true,
+        "reward": -0.03491399841134357
+      },
+      {
+        "time": 32467.420000000002,
+        "kind": "wait",
+        "message": "Waited for 900 seconds.",
+        "ok": true,
+        "reward": -0.03635471466659618
+      }
+    ]
+  }
+}

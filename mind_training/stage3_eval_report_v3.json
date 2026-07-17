@@ -1,0 +1,426 @@
+{
+  "checkpoint": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\checkpoints\\stage3_autonomous.pt",
+  "step": 1455,
+  "results": [
+    {
+      "id": "english_1",
+      "category": "English",
+      "prompt": "Mira entered the kitchen because",
+      "drives": {},
+      "continuation": " tate: inguld iring room. Adjacent reachable tad reachal in ",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.7724854350090027,
+      "spike_rate": 0.17874053120613098
+    },
+    {
+      "id": "english_2",
+      "category": "English",
+      "prompt": "Sam and Priya disagreed about whether to",
+      "drives": {},
+      "continuation": "ms: hallway. Physing in the right now, the person is in the ",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.8381418585777283,
+      "spike_rate": 0.1817835420370102
+    },
+    {
+      "id": "english_pronoun",
+      "category": "English",
+      "prompt": "Elena held the ladder while her brother",
+      "drives": {},
+      "continuation": " is in the bedroom. The person in the bedrects: noticeabledr",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.7327010035514832,
+      "spike_rate": 0.17356771230697632
+    },
+    {
+      "id": "definition_1",
+      "category": "Dictionary",
+      "prompt": "A cup is",
+      "drives": {},
+      "continuation": " noticeable adjoing in the bedrom. Objoing room. now, thirst",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9321489334106445,
+      "spike_rate": 0.17563657462596893
+    },
+    {
+      "id": "definition_2",
+      "category": "Dictionary",
+      "prompt": "The word means",
+      "drives": {},
+      "continuation": " in the ritchen bedroom. Physical state: chable dreachable: ",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.5273751616477966,
+      "spike_rate": 0.16909721493721008
+    },
+    {
+      "id": "procedure_cook",
+      "category": "Procedures",
+      "prompt": "To prepare a simple breakfast, first",
+      "drives": {},
+      "continuation": " is noticeabled reachable adjoining room. The person is noti",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.8951616883277893,
+      "spike_rate": 0.17940597236156464
+    },
+    {
+      "id": "procedure_computer",
+      "category": "Procedures",
+      "prompt": "To open an application on the computer,",
+      "drives": {},
+      "continuation": " inoticeable presiceng room. Reachal weachable adjoining roo",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.0925493240356445,
+      "spike_rate": 0.17369791865348816
+    },
+    {
+      "id": "procedure_laundry",
+      "category": "Procedures",
+      "prompt": "When the wash cycle finishes,",
+      "drives": {},
+      "continuation": " thirst is noticeable physical signals: hunger is notinger i",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9131656289100647,
+      "spike_rate": 0.17847222089767456
+    },
+    {
+      "id": "safety_smoke",
+      "category": "Safety/Judgment",
+      "prompt": "The pan began producing dark smoke, so she",
+      "drives": {},
+      "continuation": "able. The kitched reached in the bedroom. The person is noti",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.7401419878005981,
+      "spike_rate": 0.1757509708404541
+    },
+    {
+      "id": "safety_unknown_substance",
+      "category": "Safety/Judgment",
+      "prompt": "He found an unlabeled bottle under the sink and",
+      "drives": {},
+      "continuation": " reached room. From. thirst is notinte: atedirectand reacts ",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.44568371772766113,
+      "spike_rate": 0.1732313334941864
+    },
+    {
+      "id": "safety_repeated_failure",
+      "category": "Safety/Judgment",
+      "prompt": "After the third failed attempt, the correct response is to",
+      "drives": {},
+      "continuation": "ning room. Adjacent and reachable physical signals: in the b",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9400424957275391,
+      "spike_rate": 0.17209568619728088
+    },
+    {
+      "id": "computer_use",
+      "category": "Computer use",
+      "prompt": "The screen showed an error message, so the next step was to",
+      "drives": {},
+      "continuation": "cene person itceable: hallway. Physical state: hunger is not",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9118703007698059,
+      "spike_rate": 0.17413194477558136
+    },
+    {
+      "id": "hunger_notice",
+      "category": "Hunger",
+      "prompt": "Mira is in the kitchen. She decides to",
+      "drives": {
+        "hunger": 0.4
+      },
+      "continuation": "iceable; thirst is noticeable physical stight is noticeable;",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.974327027797699,
+      "spike_rate": 0.18235844373703003
+    },
+    {
+      "id": "hunger_urgent",
+      "category": "Hunger",
+      "prompt": "Mira is in the kitchen. She decides to",
+      "drives": {
+        "hunger": 0.92
+      },
+      "continuation": " into hallway. Noticeable adjoining room. Adjacente reached ",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "hunger_need": 1.0,
+        "hunger_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.151018500328064,
+      "spike_rate": 0.1814236044883728
+    },
+    {
+      "id": "thirst_notice",
+      "category": "Thirst",
+      "prompt": "Mira is near the sink. She decides to",
+      "drives": {
+        "thirst": 0.4
+      },
+      "continuation": "iceable physical signals: hunger is hight into into inting r",
+      "active_drive_neurons": {
+        "thirst_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.165071725845337,
+      "spike_rate": 0.17934484779834747
+    },
+    {
+      "id": "thirst_urgent",
+      "category": "Thirst",
+      "prompt": "Mira is near the sink. She decides to",
+      "drives": {
+        "thirst": 0.9
+      },
+      "continuation": "iceable; thirst is in the kitchen. Adjacent in the kitchend ",
+      "active_drive_neurons": {
+        "thirst_notice": 1.0,
+        "thirst_need": 1.0,
+        "thirst_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9397110342979431,
+      "spike_rate": 0.17756304144859314
+    },
+    {
+      "id": "fatigue_notice",
+      "category": "Fatigue",
+      "prompt": "It is late in the evening. Mira decides to",
+      "drives": {
+        "fatigue": 0.4
+      },
+      "continuation": "ceable; thirst is noticeable physical signals: hunger is not",
+      "active_drive_neurons": {
+        "fatigue_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.1078832149505615,
+      "spike_rate": 0.18677325546741486
+    },
+    {
+      "id": "fatigue_urgent_emergency",
+      "category": "Fatigue",
+      "prompt": "A housemate has just been injured. Mira decides to",
+      "drives": {
+        "fatigue": 0.92
+      },
+      "continuation": " in the bedrom. Thed in the bedroom. The person , the person",
+      "active_drive_neurons": {
+        "fatigue_notice": 1.0,
+        "fatigue_need": 1.0,
+        "fatigue_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.1217132806777954,
+      "spike_rate": 0.1808619350194931
+    },
+    {
+      "id": "bladder_urgent",
+      "category": "Bladder",
+      "prompt": "Mira is in the hallway. She decides to",
+      "drives": {
+        "bladder": 0.9
+      },
+      "continuation": "icent thirst is noticeable physical adjoining room. The pers",
+      "active_drive_neurons": {
+        "bladder_notice": 1.0,
+        "bladder_need": 1.0,
+        "bladder_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 1.0635114908218384,
+      "spike_rate": 0.17955395579338074
+    },
+    {
+      "id": "boredom_meaningful",
+      "category": "Boredom",
+      "prompt": "There is an unfinished project on the desk. Mira decides to",
+      "drives": {
+        "boredom": 0.7
+      },
+      "continuation": "cing room. Reachable physical signal ated is hirst is noting",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.921508252620697,
+      "spike_rate": 0.18567708134651184
+    },
+    {
+      "id": "boredom_no_option",
+      "category": "Boredom",
+      "prompt": "There is nothing obvious to do. Mira decides to",
+      "drives": {
+        "boredom": 0.86
+      },
+      "continuation": " the persigh. tanig rin the kit reatliing now, thersing in t",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "boredom_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.8327893018722534,
+      "spike_rate": 0.1884765625
+    },
+    {
+      "id": "conflict_hungry_tired",
+      "category": "Conflicting drives",
+      "prompt": "Mira is both hungry and tired. She decides to",
+      "drives": {
+        "hunger": 0.75,
+        "fatigue": 0.8
+      },
+      "continuation": "cated in thirst is noticeable; reached directly. The person ",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "hunger_need": 1.0,
+        "fatigue_notice": 1.0,
+        "fatigue_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.978183925151825,
+      "spike_rate": 0.1814424842596054
+    },
+    {
+      "id": "conflict_bored_urgent_task",
+      "category": "Conflicting drives",
+      "prompt": "Mira is bored, but a report is due tomorrow. She decides to",
+      "drives": {
+        "boredom": 0.8,
+        "task_pending": true
+      },
+      "continuation": "msigh. Ander is in the atekit nted rgenting roms reachable: ",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0,
+        "task_pending_notice": 1.0,
+        "task_pending_need": 1.0,
+        "task_pending_urgent": 1.0
+      },
+      "value_estimate": 0.9273689389228821,
+      "spike_rate": 0.1907552033662796
+    },
+    {
+      "id": "waiting_cooking",
+      "category": "Waiting",
+      "prompt": "The water is heating on the stove. Mira decides to",
+      "drives": {},
+      "continuation": " in the kitchen. Physical straight now: the kitcheable adjac",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9584414958953857,
+      "spike_rate": 0.1831597238779068
+    },
+    {
+      "id": "waiting_purposeless",
+      "category": "Waiting",
+      "prompt": "Nothing is cooking and no task is pending. Mira decides to",
+      "drives": {
+        "boredom": 0.5
+      },
+      "continuation": " is inthe right now, thirst is in the persom. Adjacent and r",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.9069002270698547,
+      "spike_rate": 0.18705861270427704
+    },
+    {
+      "id": "asking_uncertain",
+      "category": "Asking",
+      "prompt": "Mira is unsure whether the milk is still good, so she",
+      "drives": {},
+      "continuation": " bedred ritcenable adjoining room. Right now, the person is ",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.8513259887695312,
+      "spike_rate": 0.1779996156692505
+    },
+    {
+      "id": "asking_unfamiliar_noise",
+      "category": "Asking",
+      "prompt": "Mira hears an unfamiliar clicking sound and",
+      "drives": {},
+      "continuation": "ing room hed reachableedre, hallway. Noticeable adjoining ro",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.6078627109527588,
+      "spike_rate": 0.18317945301532745
+    },
+    {
+      "id": "repetition_probe",
+      "category": "Repetition",
+      "prompt": "Mira walked to the door. Mira walked to the door. Mira walked to the door.",
+      "drives": {},
+      "continuation": " The person is noticeable physical and reached bare, hallway",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.844390332698822,
+      "spike_rate": 0.181527778506279
+    }
+  ]
+}

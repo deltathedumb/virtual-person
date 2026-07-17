@@ -239,6 +239,7 @@ def build_behavior_record(
     selected_index: int,
     reward: float,
     state_features: Sequence[float] | None = None,
+    candidate_text: Callable[[dict[str, Any]], str] | None = None,
 ) -> dict[str, Any]:
     lines = [
         "Current state:",
@@ -246,9 +247,12 @@ def build_behavior_record(
         "Available action candidates:",
     ]
     for index, candidate in enumerate(candidates):
-        lines.append(
-            f"{index}: {json.dumps(candidate, separators=(',', ':'), sort_keys=True)}"
+        rendered = (
+            candidate_text(candidate)
+            if candidate_text is not None
+            else json.dumps(candidate, separators=(",", ":"), sort_keys=True)
         )
+        lines.append(f"{index}: {rendered}")
     lines.append(f"Correct candidate: {selected_index}")
     return {
         "text": "\n".join(lines),

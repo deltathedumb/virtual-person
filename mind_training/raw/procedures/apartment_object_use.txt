@@ -1,0 +1,162 @@
+Using the bed.
+
+The bed is in the bedroom. To sleep, go to the bedroom and use the bed. Sleep
+normally lasts around eight hours, though it can be shorter if less rest is
+needed or longer after unusual exhaustion. Sleeping steadily reduces fatigue;
+being awake slowly increases it. Sleep is only possible while in the bedroom,
+next to the bed; lying down anywhere else does not work.
+
+---
+
+Using the toilet.
+
+The toilet is in the bathroom. Using it relieves bladder pressure completely
+and takes a few minutes. It also slightly reduces hygiene, since restroom use
+is part of why regular washing matters. After using the toilet, washing hands
+at a sink is the correct next step.
+
+---
+
+Using the shower.
+
+The shower is in the bathroom. Showering restores hygiene to its maximum and
+takes around ten minutes. It is the main way to recover from hygiene
+discomfort; washing hands alone only helps a little.
+
+---
+
+Using a sink.
+
+There are two sinks: one in the bathroom, one in the kitchen. Using a sink
+normally washes hands, which takes under a minute. If there are dirty dishes
+waiting, using the kitchen sink instead washes all of them at once, which
+takes a few minutes longer. Dishes become dirty after eating, especially when
+a plate was used.
+
+---
+
+Using the refrigerator.
+
+The fridge is in the kitchen and can be opened and closed. Food and drinks
+stored inside, such as eggs and water, are not reachable until the fridge is
+open. Opening it takes only a moment. It should be closed again after taking
+out what is needed, rather than left open.
+
+---
+
+Cooking eggs on the stove.
+
+The stove is in the kitchen. To cook eggs, first take the eggs and the pan
+into your hands (the fridge must be open to reach the eggs), then use the
+stove. Cooking takes several minutes and turns raw eggs into cooked eggs.
+Eggs cannot be eaten while still raw. Trying to cook without both the eggs
+and the pan in hand fails and does nothing.
+
+---
+
+Eating and drinking.
+
+Food can only be eaten once it is cooked; raw food cannot be eaten safely.
+Eating restores calories and reduces hunger, and some foods also provide a
+little hydration. Drinking water reduces thirst and adds hydration, but
+drinking a lot also increases bladder pressure somewhat, so it is sensible to
+plan a restroom visit afterward if a large amount was drunk. After eating,
+the plate and pan normally need washing, which increases the dirty-dish
+count until the kitchen sink is used.
+
+---
+
+Using the table and the sofa.
+
+The kitchen table is a place to sit while eating or doing small tasks. The
+sofa in the living room is for sitting and resting without sleeping; it does
+not reduce fatigue the way sleep does, but it supports comfortable, calm
+activity such as using the computer or simply resting for a while.
+
+---
+
+Moving between rooms.
+
+The apartment has five rooms: bedroom, bathroom, kitchen, living room, and a
+central hallway connecting all of them. There is no direct path between, for
+example, the bedroom and the kitchen; the hallway must be passed through
+first. Trying to move directly between two rooms that are not connected does
+not work and wastes the attempt; check which rooms are adjacent before
+planning a multi-room task.
+
+---
+
+Picking up and putting down objects.
+
+Portable objects, such as eggs, water, a pan, or a plate, can be picked up
+and carried between rooms, but only if they are currently reachable: not
+inside a closed container, and in the same room as the person. Only portable
+objects can be picked up; fixed fixtures like the stove, fridge, or bed
+cannot be carried. An object being carried can be put down in the current
+room at any time.
+
+---
+
+The virtual computer: powering on and choosing an application.
+
+The computer is in the living room. It must be powered on before it can be
+used; the very first click after powering on shows a desktop with icons for
+Notes, Browser, and Terminal. Clicking an icon, or using the computer with an
+explicit request to launch an application, opens that application and gives
+it keyboard focus.
+
+---
+
+The virtual computer: Notes.
+
+Opening Notes focuses a text editor. Typed text is appended to whatever is
+already there; Backspace removes the most recent character. A Submit button
+finishes the current note; submitting only succeeds if the note is not empty.
+Completing a note and submitting it is how the daily computer task gets
+marked done.
+
+---
+
+The virtual computer: Browser.
+
+Opening the Browser focuses an address bar. Typed text is appended to the
+address as it is entered; Backspace removes characters. Pressing Enter loads
+whatever address is currently in the bar. Only a small number of addresses
+resolve to a real page; an unrecognized address loads a "Page Not Found"
+result rather than causing an error, so a wrong address is safe to correct
+and retry.
+
+---
+
+The virtual computer: Terminal.
+
+Opening the Terminal focuses a command line. Typed text is appended to the
+current line; Backspace edits it; pressing Enter runs the line as a command
+and starts a new line below the output. Recognized commands include "help",
+which lists available commands, "date", which reports that time is controlled
+by the simulation rather than the terminal itself, "echo <text>", which
+repeats back whatever follows it, and "clear". An unrecognized command
+returns a "command not found" message rather than failing silently, so it is
+easy to tell a typo from a real problem.
+
+---
+
+The virtual computer: mouse and clicking.
+
+The mouse can be moved to a position on the screen before clicking, though
+clicking a named element, such as an icon or a button, works directly without
+needing to move the mouse there first. Clicking an element the current
+application does not recognize simply shifts focus to it without further
+effect; it does not raise an error.
+
+---
+
+General computer-use judgment.
+
+Before typing into a field, make sure the intended application is open and
+the right field has focus; typing into the wrong field, like the address bar
+instead of Notes, produces confusing results rather than an error, so it is
+worth checking what is focused first. If a submit or send action seems to do
+nothing, check whether the required content, such as note text, was actually
+present beforehand, since some actions silently no-op on empty input rather
+than failing loudly.

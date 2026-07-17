@@ -1,0 +1,530 @@
+<title>Apartment Snapshot Viewer</title>
+<style>
+  :root {
+    --paper: #f7f5f0;
+    --paper-raised: #ffffff;
+    --ink: #23262b;
+    --ink-dim: #6b6f76;
+    --line: #d8d4c9;
+    --accent: #3d6b8a;
+    --accent-soft: #e4edf1;
+    --agent: #c8853a;
+    --good: #4d7c53;
+    --warn: #b8842c;
+    --bad: #b3442f;
+    --mono: "Snapshot Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+    --sans: -apple-system, "Segoe UI", system-ui, sans-serif;
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #1a1d22;
+    --paper-raised: #23272e;
+    --ink: #e8e6e1;
+    --ink-dim: #8b909a;
+    --line: #383d46;
+    --accent: #7fb1cf;
+    --accent-soft: #263846;
+    --agent: #e0a458;
+    --good: #7cb583;
+    --warn: #d6a24e;
+    --bad: #d97a63;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1a1d22;
+      --paper-raised: #23272e;
+      --ink: #e8e6e1;
+      --ink-dim: #8b909a;
+      --line: #383d46;
+      --accent: #7fb1cf;
+      --accent-soft: #263846;
+      --good: #7cb583;
+      --warn: #d6a24e;
+      --bad: #d97a63;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    min-height: 100vh;
+  }
+
+  .frame {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 48px;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h1 .who {
+    color: var(--accent);
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-dim);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+  }
+
+  .panel-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .plan-wrap {
+    padding: 14px;
+    overflow-x: auto;
+  }
+
+  svg text {
+    font-family: var(--mono);
+  }
+
+  .room-rect {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1.5;
+  }
+
+  .room-label {
+    font-size: 6px;
+    fill: var(--ink-dim);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .door {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    opacity: 0.55;
+  }
+
+  .obj-dot {
+    fill: var(--paper);
+    stroke: var(--ink-dim);
+    stroke-width: 1;
+  }
+
+  .obj-dot.open {
+    fill: var(--accent-soft);
+    stroke: var(--accent);
+  }
+
+  .obj-label {
+    font-size: 4.6px;
+    fill: var(--ink-dim);
+  }
+
+  .agent-dot {
+    fill: var(--agent);
+    stroke: var(--paper-raised);
+    stroke-width: 1.2;
+  }
+
+  .agent-ring {
+    fill: none;
+    stroke: var(--agent);
+    stroke-width: 1;
+    opacity: 0.4;
+  }
+
+  .side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .state-row {
+    display: grid;
+    grid-template-columns: 92px 1fr 34px;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+  }
+
+  .state-row .name {
+    color: var(--ink-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bar-track {
+    height: 7px;
+    background: var(--accent-soft);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent);
+  }
+
+  .bar-fill.warn { background: var(--warn); }
+  .bar-fill.bad { background: var(--bad); }
+
+  .state-row .val {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .divider-gap { height: 6px; }
+
+  .agent-card {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .agent-card .line {
+    font-size: 0.82rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .agent-card .line .k { color: var(--ink-dim); }
+  .agent-card .line .v { font-weight: 600; text-align: right; }
+
+  .events-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  .events-list li {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 8px;
+  }
+
+  .events-list li:last-child { border-bottom: none; }
+
+  .events-list .t {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-dim);
+    white-space: nowrap;
+    padding-top: 1px;
+  }
+
+  .events-list .msg { flex: 1; }
+
+  .events-list .r {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .events-list .r.pos { color: var(--good); }
+  .events-list .r.neg { color: var(--bad); }
+
+  .file-controls {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-dim);
+  }
+
+  input[type="file"] {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink);
+  }
+
+  .empty-note {
+    padding: 40px 14px;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+</style>
+
+<div class="frame">
+  <header>
+    <h1>apartment snapshot &mdash; <span class="who" id="who">no data loaded</span></h1>
+    <div class="meta" id="meta">day &mdash; &middot; hour &mdash;</div>
+  </header>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="panel-label">floor plan</div>
+      <div class="plan-wrap">
+        <svg id="plan" viewBox="0 0 11 10" width="100%" style="max-width:640px; display:block;"></svg>
+      </div>
+    </div>
+
+    <div class="side-stack">
+      <div class="panel agent-card" id="agent-card"></div>
+      <div class="panel">
+        <div class="panel-label">drives &amp; body state</div>
+        <div id="state-rows"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-label">recent events</div>
+        <ul class="events-list" id="events"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="file-controls">
+    <label for="file-input">load snapshot.json:</label>
+    <input type="file" id="file-input" accept="application/json">
+  </div>
+</div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const DRIVE_FIELDS = [
+    ["hunger", "hunger"],
+    ["thirst", "thirst"],
+    ["fatigue", "fatigue"],
+    ["bladder", "bladder"],
+    ["hygiene", "hygiene (inv)"],
+    ["health", "health (inv)"],
+    ["social", "social need"],
+  ];
+
+  function el(tag, attrs, parent) {
+    const node = document.createElementNS(NS, tag);
+    for (const k in attrs) node.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(node);
+    return node;
+  }
+
+  function severity(name, value) {
+    const inverted = name === "hygiene" || name === "health";
+    const pressure = inverted ? (1 - value) : value;
+    if (pressure >= 0.85) return "bad";
+    if (pressure >= 0.6) return "warn";
+    return "";
+  }
+
+  function renderPlan(payload) {
+    const svg = document.getElementById("plan");
+    svg.innerHTML = "";
+    const layout = payload.layout;
+    const rooms = payload.rooms;
+    const agentRoom = payload.snapshot.world.room;
+    const visibleIds = new Set(payload.snapshot.world.visible_objects.map(o => o.id));
+    const inventory = new Set(payload.snapshot.agent.inventory || []);
+
+    let maxX = 0, maxY = 0;
+    for (const r of Object.values(layout)) {
+      maxX = Math.max(maxX, r.x + r.w);
+      maxY = Math.max(maxY, r.y + r.h);
+    }
+    svg.setAttribute("viewBox", `0 0 ${maxX} ${maxY}`);
+
+    // doors: draw a short accent segment on the shared edge between adjacent rooms
+    const drawn = new Set();
+    for (const [name, neighbors] of Object.entries(rooms)) {
+      const a = layout[name];
+      for (const nb of neighbors) {
+        const key = [name, nb].sort().join("|");
+        if (drawn.has(key)) continue;
+        drawn.add(key);
+        const b = layout[nb];
+        if (!a || !b) continue;
+        // shared vertical edge
+        if (a.x + a.w === b.x || b.x + b.w === a.x) {
+          const top = Math.max(a.y, b.y);
+          const bottom = Math.min(a.y + a.h, b.y + b.h);
+          const mid = (top + bottom) / 2;
+          const x = a.x + a.w === b.x ? a.x + a.w : b.x + b.w;
+          el("line", { x1: x, y1: mid - 0.5, x2: x, y2: mid + 0.5, class: "door" }, svg);
+        } else if (a.y + a.h === b.y || b.y + b.h === a.y) {
+          const left = Math.max(a.x, b.x);
+          const right = Math.min(a.x + a.w, b.x + b.w);
+          const mid = (left + right) / 2;
+          const y = a.y + a.h === b.y ? a.y + a.h : b.y + b.h;
+          el("line", { x1: mid - 0.5, y1: y, x2: mid + 0.5, y2: y, class: "door" }, svg);
+        }
+      }
+    }
+
+    for (const [name, r] of Object.entries(layout)) {
+      el("rect", { x: r.x + 0.1, y: r.y + 0.1, width: r.w - 0.2, height: r.h - 0.2, class: "room-rect" }, svg);
+      el("text", { x: r.x + 0.25, y: r.y + 0.6, class: "room-label" }, svg).textContent = name.replace("_", " ");
+    }
+
+    // objects, laid out in a simple grid within each room
+    const roomCounts = {};
+    for (const obj of payload.objects) {
+      if (obj.container) continue; // hidden inside something else
+      const r = layout[obj.room];
+      if (!r) continue;
+      const idx = roomCounts[obj.room] || 0;
+      roomCounts[obj.room] = idx + 1;
+      const cols = Math.max(1, Math.floor((r.w - 0.6) / 1.0));
+      const col = idx % cols;
+      const row = Math.floor(idx / cols);
+      const cx = r.x + 0.7 + col * 1.0;
+      const cy = r.y + 1.1 + row * 1.0;
+      const isOpenish = obj.openable && obj.is_open;
+      const held = inventory.has(obj.id);
+      el("circle", { cx, cy, r: 0.28, class: "obj-dot" + (isOpenish ? " open" : "") }, svg);
+      el("text", { x: cx, y: cy + 0.62, class: "obj-label", "text-anchor": "middle" }, svg)
+        .textContent = obj.id + (held ? " *" : "");
+    }
+
+    // agent marker, centered in its current room
+    const ar = layout[agentRoom];
+    if (ar) {
+      const ax = ar.x + ar.w / 2;
+      const ay = ar.y + ar.h - 0.9;
+      el("circle", { cx: ax, cy: ay, r: 0.7, class: "agent-ring" }, svg);
+      el("circle", { cx: ax, cy: ay, r: 0.34, class: "agent-dot" }, svg);
+    }
+  }
+
+  function renderState(payload) {
+    const body = payload.snapshot.agent.body;
+    const container = document.getElementById("state-rows");
+    container.innerHTML = "";
+    for (const [key, label] of DRIVE_FIELDS) {
+      const value = body[key];
+      const inverted = key === "hygiene" || key === "health";
+      const pressure = inverted ? (1 - value) : value;
+      const row = document.createElement("div");
+      row.className = "state-row";
+      const sev = severity(key, value);
+      row.innerHTML = `
+        <span class="name">${label}</span>
+        <span class="bar-track"><span class="bar-fill ${sev}" style="width:${Math.round(pressure * 100)}%"></span></span>
+        <span class="val">${value.toFixed(2)}</span>
+      `;
+      container.appendChild(row);
+    }
+  }
+
+  function renderAgentCard(payload) {
+    const agent = payload.snapshot.agent;
+    const card = document.getElementById("agent-card");
+    const inv = (agent.inventory || []).join(", ") || "empty";
+    card.innerHTML = `
+      <div class="line"><span class="k">name</span><span class="v">${agent.self.name}</span></div>
+      <div class="line"><span class="k">room</span><span class="v">${payload.snapshot.world.room}</span></div>
+      <div class="line"><span class="k">activity</span><span class="v">${agent.activity}</span></div>
+      <div class="line"><span class="k">goal</span><span class="v">${agent.goal || "none"}</span></div>
+      <div class="line"><span class="k">inventory</span><span class="v">${inv}</span></div>
+      <div class="line"><span class="k">actions taken</span><span class="v">${agent.action_count}</span></div>
+      <div class="line"><span class="k">failures</span><span class="v">${agent.failures}</span></div>
+    `;
+  }
+
+  function renderEvents(payload) {
+    const list = document.getElementById("events");
+    list.innerHTML = "";
+    const events = payload.snapshot.recent_events || [];
+    for (const ev of [...events].reverse()) {
+      const li = document.createElement("li");
+      const rewardClass = ev.reward > 0 ? "pos" : ev.reward < 0 ? "neg" : "";
+      const sign = ev.reward > 0 ? "+" : "";
+      li.innerHTML = `
+        <span class="t">${Math.round(ev.time)}s</span>
+        <span class="msg">${ev.message}</span>
+        <span class="r ${rewardClass}">${sign}${ev.reward.toFixed(3)}</span>
+      `;
+      list.appendChild(li);
+    }
+    if (!events.length) {
+      list.innerHTML = '<li class="empty-note">no events recorded</li>';
+    }
+  }
+
+  function render(payload) {
+    document.getElementById("who").textContent = payload.snapshot.agent.self.name;
+    document.getElementById("meta").textContent =
+      `day ${payload.snapshot.day} · hour ${payload.snapshot.hour.toFixed(1)} · t=${Math.round(payload.snapshot.sim_time)}s`;
+    renderPlan(payload);
+    renderAgentCard(payload);
+    renderState(payload);
+    renderEvents(payload);
+  }
+
+  document.getElementById("file-input").addEventListener("change", (evt) => {
+    const file = evt.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        render(JSON.parse(reader.result));
+      } catch (err) {
+        alert("Could not parse snapshot JSON: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  });
+
+  window.__renderSnapshot = render;
+
+  const SAMPLE = {"layout":{"bedroom":{"x":0,"y":0,"w":4,"h":4},"bathroom":{"x":4,"y":0,"w":3,"h":4},"hallway":{"x":0,"y":4,"w":7,"h":2},"kitchen":{"x":7,"y":0,"w":4,"h":6},"living_room":{"x":0,"y":6,"w":11,"h":4}},"rooms":{"bedroom":["hallway"],"hallway":["bathroom","bedroom","kitchen","living_room"],"bathroom":["hallway"],"kitchen":["hallway"],"living_room":["hallway"]},"objects":[{"id":"bed","kind":"bed","room":"bedroom","portable":false,"openable":false,"is_open":false,"container":null},{"id":"toilet","kind":"toilet","room":"bathroom","portable":false,"openable":false,"is_open":false,"container":null},{"id":"shower","kind":"shower","room":"bathroom","portable":false,"openable":false,"is_open":false,"container":null},{"id":"bathroom_sink","kind":"sink","room":"bathroom","portable":false,"openable":false,"is_open":false,"container":null},{"id":"fridge","kind":"refrigerator","room":"kitchen","portable":false,"openable":true,"is_open":false,"container":null},{"id":"eggs","kind":"food","room":"kitchen","portable":true,"openable":false,"is_open":false,"container":"fridge"},{"id":"water","kind":"drink","room":"kitchen","portable":true,"openable":false,"is_open":false,"container":"fridge"},{"id":"pan","kind":"cookware","room":"kitchen","portable":true,"openable":false,"is_open":false,"container":null},{"id":"plate","kind":"dish","room":"kitchen","portable":true,"openable":false,"is_open":false,"container":null},{"id":"stove","kind":"stove","room":"kitchen","portable":false,"openable":false,"is_open":false,"container":null},{"id":"kitchen_sink","kind":"sink","room":"kitchen","portable":false,"openable":false,"is_open":false,"container":null},{"id":"table","kind":"table","room":"kitchen","portable":false,"openable":false,"is_open":false,"container":null},{"id":"computer","kind":"computer","room":"living_room","portable":false,"openable":false,"is_open":false,"container":null},{"id":"sofa","kind":"seat","room":"living_room","portable":false,"openable":false,"is_open":false,"container":null}],"snapshot":{"sim_time":32467.420000000002,"day":1,"hour":9.018727777777778,"agent":{"self":{"name":"Mira","age":24,"identity":"embodied person with a robotic body","home_location":"apartment","beliefs":{"embodiment":"My robotic body is the body through which I sense and act.","environment":"I exist and act in a physical environment through sensors and actuators.","continuity":"My memories connect my experiences across time."},"relationships":{}},"room":"living_room","activity":"idle","goal":"IDLE","body":{"hunger":0.28062433333333336,"thirst":0.2510405555555556,"fatigue":0.23572838888888892,"bladder":0.1811206910245371,"hygiene":0.8897918888888889,"health":1.0,"social":0.26833709999999994,"body_temperature_c":36.8,"calories_available":1813.2310555555555,"hydration":0.8744797222222223,"asleep":false},"inventory":[],"daily_computer_task_done":true,"action_count":10,"failures":0},"world":{"room":"living_room","neighbors":["hallway"],"visible_objects":[{"id":"computer","kind":"computer","portable":false,"openable":false,"is_open":false,"properties":{}},{"id":"sofa","kind":"seat","portable":false,"openable":false,"is_open":false,"properties":{}}],"inventory":[],"dirty_dishes":0,"body":{"hunger":0.28062433333333336,"thirst":0.2510405555555556,"fatigue":0.23572838888888892,"bladder":0.1811206910245371,"hygiene":0.8897918888888889,"health":1.0,"social":0.26833709999999994,"body_temperature_c":36.8,"calories_available":1813.2310555555555,"hydration":0.8744797222222223,"asleep":false},"computer":{"powered_on":true,"active_app":"notes","mouse":[0,0],"elements":[{"id":"notes_editor","role":"textbox","text":"","value":"Daily report: I checked my needs, maintained the apartment, and completed the assigned virtual computer task.","focused":true,"enabled":true},{"id":"submit_task","role":"button","text":"Submit","value":"","focused":false,"enabled":true}],"task_complete":true}},"recent_events":[{"time":28825.0,"kind":"move","message":"Moved from bedroom to hallway.","ok":true,"reward":0.01902638309582359},{"time":28850.0,"kind":"move","message":"Moved from hallway to living_room.","ok":true,"reward":0.0190249784496249},{"time":28853.0,"kind":"use","message":"The virtual computer powered on.","ok":true,"reward":0.09989569265139939},{"time":28856.0,"kind":"use","message":"Opened notes.","ok":true,"reward":0.09989567666478524},{"time":28866.72,"kind":"type_text","message":"Typed 109 characters into Notes.","ok":true,"reward":-0.0003729124381833815},{"time":28867.420000000002,"kind":"click","message":"Submitted the current notes.","ok":true,"reward":-2.4357745863734515e-05},{"time":29767.420000000002,"kind":"wait","message":"Waited for 900 seconds.","ok":true,"reward":-0.03203471427710819},{"time":30667.420000000002,"kind":"wait","message":"Waited for 900 seconds.","ok":true,"reward":-0.03347399852565491},{"time":31567.420000000002,"kind":"wait","message":"Waited for 900 seconds.","ok":true,"reward":-0.03491399841134357},{"time":32467.420000000002,"kind":"wait","message":"Waited for 900 seconds.","ok":true,"reward":-0.03635471466659618}]}};
+
+  render(SAMPLE);
+})();
+</script>

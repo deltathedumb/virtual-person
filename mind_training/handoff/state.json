@@ -1,0 +1,93 @@
+{
+  "handoff_written_at": "2026-07-17T00:00:00Z",
+  "read_first": "mind_training/handoff/HANDOFF.md",
+  "reason_for_handoff": "Current hardware is a 4-core i5-3570K with no usable GPU; a full 3-stage CPU-only curriculum retrain takes 30-45 minutes even at the smallest real profile. Next step needs a much larger English corpus and probably a larger model, which needs faster hardware.",
+  "repo_root": "c:\\Users\\M\\Documents\\Coding\\vp",
+  "package_name": "virtual-person-ai",
+  "install_command": "python -m pip install -e .",
+  "test_suite": {
+    "command": "python -m pytest -q",
+    "last_known_result": "57 passed",
+    "run_this_first": true
+  },
+  "hardware_this_was_built_on": {
+    "cpu": "Intel Core i5-3570K, 4 cores/4 threads",
+    "ram_gb": 12.8,
+    "gpu": "NVIDIA GeForce GT 710, 1GB VRAM, CUDA unavailable",
+    "device_used_for_all_training": "cpu"
+  },
+  "trainer_workspace": "./mind_training",
+  "current_model_profile": "CPU prototype",
+  "current_checkpoints": {
+    "stage1": "mind_training/checkpoints/stage1_language.pt",
+    "stage2": "mind_training/checkpoints/stage2_practical.pt",
+    "stage3": "mind_training/checkpoints/stage3_autonomous.pt",
+    "note": "These are POST both bugfixes (JSON leakage + template-repetition leakage). Older checkpoints are preserved in pre_fix_backup/ and pre_template_fix_backup/ subdirectories, do not delete without explicit user permission."
+  },
+  "corpus_summary": {
+    "total_files": 14,
+    "total_records": 692,
+    "total_characters": 254478,
+    "malformed": 0,
+    "missing_paths": 0,
+    "by_category": {
+      "Behavior": {"files": 3, "records": 459, "characters": 219138},
+      "Dictionary": {"files": 1, "records": 19, "characters": 1842},
+      "English": {"files": 3, "records": 75, "characters": 10600, "note": "BOTTLENECK - needs to grow by 10x+ before next training pass, see HANDOFF.md"},
+      "Procedures": {"files": 5, "records": 97, "characters": 16989},
+      "Safety/Judgment": {"files": 2, "records": 42, "characters": 5909}
+    }
+  },
+  "known_bugs_fixed_this_session": [
+    {
+      "id": "json_leakage",
+      "status": "fixed",
+      "description": "bootstrap_data.py used json.dumps(observation) as training text; model leaked raw JSON syntax into all generations.",
+      "fix_location": "src/virtual_person/bootstrap_data.py: _describe_state(), _describe_candidate()",
+      "backup_checkpoints": "mind_training/checkpoints/pre_fix_backup/"
+    },
+    {
+      "id": "template_repetition_leakage",
+      "status": "fixed_but_root_cause_likely_deeper",
+      "description": "Fix for json_leakage used exactly one fixed English sentence template per slot; model over-fit to those exact phrases instead, leaking fragments like 'Reachable adjoining room' into all generations.",
+      "fix_location": "src/virtual_person/bootstrap_data.py: _ROOM_TEMPLATES, _NEIGHBOR_TEMPLATES, _DRIVE_INTRO_TEMPLATES, _VISIBLE_TEMPLATES, _CANDIDATE_TEMPLATES (multiple phrasings, randomly selected per record)",
+      "backup_checkpoints": "mind_training/checkpoints/pre_template_fix_backup/",
+      "result_after_fix": "No longer locks onto ONE phrase, but generated text is still ungrammatical word-salad recombining fragments from the several templates. Likely a capacity/data-scale ceiling, not a remaining formatting bug. See HANDOFF.md 'The result after both fixes' section.",
+      "eval_report": "mind_training/stage3_eval_report_v3.json"
+    }
+  ],
+  "recommended_next_steps_in_priority_order": [
+    "Grow the English corpus by roughly 10x (thousands of records of real natural prose, not more Behavior template variants) before any further training.",
+    "Only after corpus growth: move up to 'Small GPU experiment' profile (192 hidden, 4 layers) per trainer_support.py MODEL_PROFILES, following the project's own scaling policy (verify throughput/memory before committing).",
+    "Do not patch bootstrap_data.py phrasing further; diminishing returns already reached after two rounds."
+  ],
+  "features_built_this_session_all_tested_working": [
+    {"name": "task_economy", "file": "src/virtual_person/economy.py", "tests": "tests/test_economy.py"},
+    {"name": "shop_app", "files": ["src/virtual_person/computer.py", "src/virtual_person/world.py"], "note": "No substance/drug purchases - explicitly excluded by user."},
+    {"name": "runtime_gui", "file": "src/virtual_person/runtime_ui.py", "script": "virtual-person-runtime", "tests": "tests/test_runtime_ui.py"},
+    {"name": "vp_package_format", "file": "src/virtual_person/vp_package.py", "cli": "virtual-person-trainer pack|unpack|inspect-vp", "tests": "tests/test_vp_package.py"},
+    {"name": "qemu_vm_integration", "file": "src/virtual_person/vm_runtime.py", "tests": "tests/test_vm_runtime.py", "note": "Implements existing SensorSuite/ActuatorSuite ABCs from real_world.py, verified through RealWorldRuntime's safety gating directly."}
+  ],
+  "vm_state_at_handoff": {
+    "status": "windows_10_install_in_progress",
+    "disk_path": "mind_training/vm/windows10.qcow2",
+    "disk_size_gb": 40,
+    "installer_iso": "Windows.iso (repo root, ~8.45GB, gitignored)",
+    "process_name": "qemu-system-x86_64.exe",
+    "last_seen_pid": 20016,
+    "last_seen_ram_mb": 4020,
+    "user_was_doing": "Interactive OOBE setup ('getting ready...') in a visible QEMU SDL window",
+    "next_steps_once_desktop_reached": [
+      "Confirm QEMU process is still alive and check if Windows finished booting.",
+      "For subsequent boots, drop -cdrom Windows.iso -boot d (installer-only flags) - just boot windows10.qcow2 directly.",
+      "Hand the running VM to QemuSensors/QemuActuators per the pattern already verified working in this session (see test_vm_runtime.py and vm_runtime.py)."
+    ]
+  },
+  "hard_constraints_do_not_violate": [
+    "No custom internet-facing network protocols - explicitly refused earlier in session, use vetted tools (Tailscale/SSH) if remote access is ever needed.",
+    "No substance/drug purchase mechanics in the economy/shop system - explicitly scoped out by user.",
+    "Do not delete pre_fix_backup/ or pre_template_fix_backup/ checkpoints without explicit user permission.",
+    "Do not scale model/corpus size up without measuring throughput first, per project's own TRAINING_GUIDE.md scaling policy.",
+    "Never judge a checkpoint from one generation sample - always use mind_training/eval_suite.json + run_eval_suite.py."
+  ]
+}

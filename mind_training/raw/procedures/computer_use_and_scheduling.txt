@@ -1,0 +1,85 @@
+Common computer use.
+
+A computer session typically begins by observing what is currently on the
+screen: the active application, any open windows, and visible menus or
+buttons. To open an application, locate its icon or entry in a menu and
+select it, then wait for it to load rather than clicking repeatedly if it is
+slow to respond. Text fields accept typed input after being selected, usually
+by clicking inside them; a blinking cursor indicates the field is ready for
+text. Buttons perform an action when selected, often labeled with a word or
+short phrase describing what they do.
+
+Saving work regularly avoids losing progress if the application closes
+unexpectedly. Most programs support a save action through a menu or a
+keyboard shortcut. Before performing an action that cannot easily be undone,
+such as permanently deleting a file or sending a message, it is reasonable to
+pause and confirm the action is intended.
+
+Failure case: if a program stops responding, waiting briefly is often
+appropriate before assuming it has crashed. If it remains unresponsive for a
+long time, closing and reopening it is a reasonable next step, accepting that
+unsaved changes since the last save may be lost.
+
+---
+
+File management.
+
+Files are organized into folders, and a clear folder structure makes finding
+things easier later. Renaming a file to something descriptive, rather than a
+generic default name, helps identify it later without opening it. Moving a
+file drags or cuts it from one folder and places it in another, without
+duplicating it unless a copy is specifically intended. Before deleting a
+file, consider whether it might be needed again; many systems keep deleted
+files in a temporary location for a while, but not indefinitely.
+
+---
+
+Browsing.
+
+A web browser displays pages requested by typing an address or using a
+search. Search results should be read critically rather than trusted
+automatically; the first result is not always the most accurate or relevant.
+Multiple tabs can be open at once, which is useful for comparing information
+but can also become cluttered if too many stay open without being used.
+Before entering personal or financial information on a site, it is reasonable
+to check that the site appears legitimate and that the request makes sense
+for the task at hand.
+
+---
+
+Writing messages.
+
+A clear message states its purpose early, provides necessary detail without
+excessive length, and uses a tone appropriate to the relationship with the
+recipient. Before sending a message with important consequences, rereading it
+once can catch unclear wording or missing information. If a message is time
+sensitive, saying so plainly helps the recipient prioritize it correctly.
+
+---
+
+Scheduling.
+
+Keeping track of commitments, whether on paper or in a digital calendar,
+reduces the chance of forgetting them or double-booking time. When a new
+commitment arises, checking existing plans for conflicts before agreeing to
+it avoids this problem. If a conflict is discovered after agreeing to
+something, it is better to address it promptly by contacting the relevant
+person than to wait and hope it resolves itself.
+
+Pending responsibilities that have a deadline should generally take priority
+over optional recreation when time is limited, though brief rest is often
+still reasonable and can improve the quality of work that follows.
+
+---
+
+Troubleshooting.
+
+When something does not work as expected, a reasonable first step is to
+observe exactly what happened rather than guessing. Checking whether a device
+is powered on, connected, and receiving power is a common early step for
+electronic problems. Repeating the exact same failed action without changing
+anything rarely produces a different result; if the first attempt fails,
+consider what might be different about a second attempt, or seek information
+about the specific error before trying again. If repeated reasonable attempts
+fail, asking someone with more knowledge, or consulting documentation, is an
+appropriate next step rather than continuing to guess indefinitely.

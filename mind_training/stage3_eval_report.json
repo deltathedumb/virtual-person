@@ -1,0 +1,426 @@
+{
+  "checkpoint": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\checkpoints\\stage3_autonomous.pt",
+  "step": 1308,
+  "results": [
+    {
+      "id": "english_1",
+      "category": "English",
+      "prompt": "Mira entered the kitchen because",
+      "drives": {},
+      "continuation": " :falories_available\":15,\"fatige\":0.0,\"body_tempent state:\n{",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.1346927434206009,
+      "spike_rate": 0.1783459633588791
+    },
+    {
+      "id": "english_2",
+      "category": "English",
+      "prompt": "Sam and Priya disagreed about whether to",
+      "drives": {},
+      "continuation": "mperatoriguurerat:\n{\"body\":{\"asleep\":false,\"bladder\":0.65155",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.11754292249679565,
+      "spike_rate": 0.17536839842796326
+    },
+    {
+      "id": "english_pronoun",
+      "category": "English",
+      "prompt": "Elena held the ladder while her brother",
+      "drives": {},
+      "continuation": "ture_c\":36.8,\"calories_available\":fadder\":0.0,\"healthe,\"calo",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.19324803352355957,
+      "spike_rate": 0.17858073115348816
+    },
+    {
+      "id": "definition_1",
+      "category": "Dictionary",
+      "prompt": "A cup is",
+      "drives": {},
+      "continuation": "uare: state:\n{\"body\":{\"asleep\":false,\"bladder\":0.0,\"body_tem",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.05206713452935219,
+      "spike_rate": 0.1710069477558136
+    },
+    {
+      "id": "definition_2",
+      "category": "Dictionary",
+      "prompt": "The word means",
+      "drives": {},
+      "continuation": "mperated state:\n{\"body\":{\"asleep\":false,\":0.0730229243688888",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.0600443072617054,
+      "spike_rate": 0.17690971493721008
+    },
+    {
+      "id": "procedure_cook",
+      "category": "Procedures",
+      "prompt": "To prepare a simple breakfast, first",
+      "drives": {},
+      "continuation": "ate:\n{\":{\"asleep\":false,\"bladderitheate:\n{\"body\":{\"asleep\":f",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.2722175121307373,
+      "spike_rate": 0.17912442982196808
+    },
+    {
+      "id": "procedure_computer",
+      "category": "Procedures",
+      "prompt": "To open an application on the computer,",
+      "drives": {},
+      "continuation": "\"cate:\n{\"body\":{\"asleep\":false,\"bladder\":0.33313495526,\"fati",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.34791556000709534,
+      "spike_rate": 0.1809895783662796
+    },
+    {
+      "id": "procedure_laundry",
+      "category": "Procedures",
+      "prompt": "When the wash cycle finishes,",
+      "drives": {},
+      "continuation": "\"caly borigue\":0.8,\"calories_avent state:\n{\"body\":{\"asleep\":",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.46782997250556946,
+      "spike_rate": 0.17717014253139496
+    },
+    {
+      "id": "safety_smoke",
+      "category": "Safety/Judgment",
+      "prompt": "The pan began producing dark smoke, so she",
+      "drives": {},
+      "continuation": "ature_c\":36.8,\"calories_available\":18.31.\"fatigue\":0.8555555",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.3463374674320221,
+      "spike_rate": 0.18404796719551086
+    },
+    {
+      "id": "safety_unknown_substance",
+      "category": "Safety/Judgment",
+      "prompt": "He found an unlabeled bottle under the sink and",
+      "drives": {},
+      "continuation": " state:\n{\"body sties_availeep\":falseable\":falseep\":false,\"bl",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.029393214732408524,
+      "spike_rate": 0.1787109375
+    },
+    {
+      "id": "safety_repeated_failure",
+      "category": "Safety/Judgment",
+      "prompt": "After the third failed attempt, the correct response is to",
+      "drives": {},
+      "continuation": "reathe:\n{\"body\":{\"asleeperature_c\":36.8,\"calories_avaideratu",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.03933795168995857,
+      "spike_rate": 0.17862817645072937
+    },
+    {
+      "id": "computer_use",
+      "category": "Computer use",
+      "prompt": "The screen showed an error message, so the next step was to",
+      "drives": {},
+      "continuation": "res_caturent state:\n{\"body\":{\"asleep\":false,\"bladder\":0.3115",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.05667153373360634,
+      "spike_rate": 0.1838107705116272
+    },
+    {
+      "id": "hunger_notice",
+      "category": "Hunger",
+      "prompt": "Mira is in the kitchen. She decides to",
+      "drives": {
+        "hunger": 0.4
+      },
+      "continuation": "mes_ave:\n{\"body\":{\"alories_avaigep\":falseep\":false,\"bladder\"",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.1061067283153534,
+      "spike_rate": 0.17661592364311218
+    },
+    {
+      "id": "hunger_urgent",
+      "category": "Hunger",
+      "prompt": "Mira is in the kitchen. She decides to",
+      "drives": {
+        "hunger": 0.92
+      },
+      "continuation": "mperate:\n{\"body\":{\"asleep\":false,\"bladder\":0.05,\"fatigue\":0.",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "hunger_need": 1.0,
+        "hunger_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.10949099063873291,
+      "spike_rate": 0.17694978415966034
+    },
+    {
+      "id": "thirst_notice",
+      "category": "Thirst",
+      "prompt": "Mira is near the sink. She decides to",
+      "drives": {
+        "thirst": 0.4
+      },
+      "continuation": "re_c\":36.8,\"calories_available\":1900.0,\"fatigue\":0.0,\"fate:0",
+      "active_drive_neurons": {
+        "thirst_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.10396891832351685,
+      "spike_rate": 0.17680920660495758
+    },
+    {
+      "id": "thirst_urgent",
+      "category": "Thirst",
+      "prompt": "Mira is near the sink. She decides to",
+      "drives": {
+        "thirst": 0.9
+      },
+      "continuation": "ure_c\":36.8,\"calories_available\":15.0,\"fatigue state:\n{\":fal",
+      "active_drive_neurons": {
+        "thirst_notice": 1.0,
+        "thirst_need": 1.0,
+        "thirst_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.09412014484405518,
+      "spike_rate": 0.1808525174856186
+    },
+    {
+      "id": "fatigue_notice",
+      "category": "Fatigue",
+      "prompt": "It is late in the evening. Mira decides to",
+      "drives": {
+        "fatigue": 0.4
+      },
+      "continuation": "r canth\":fale,\"bladder\":0.813948577777777777777777777777778,",
+      "active_drive_neurons": {
+        "fatigue_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.06977477669715881,
+      "spike_rate": 0.17120881378650665
+    },
+    {
+      "id": "fatigue_urgent_emergency",
+      "category": "Fatigue",
+      "prompt": "A housemate has just been injured. Mira decides to",
+      "drives": {
+        "fatigue": 0.92
+      },
+      "continuation": "res_c\":36.8,\"calorigue\":0.0,\"body_temperature_c\":36.8,\"calor",
+      "active_drive_neurons": {
+        "fatigue_notice": 1.0,
+        "fatigue_need": 1.0,
+        "fatigue_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.07704183459281921,
+      "spike_rate": 0.17897263169288635
+    },
+    {
+      "id": "bladder_urgent",
+      "category": "Bladder",
+      "prompt": "Mira is in the hallway. She decides to",
+      "drives": {
+        "bladder": 0.9
+      },
+      "continuation": "ries_ate:\n{\":{\"aseperatec\":36.8,\"calories_available\":1813351",
+      "active_drive_neurons": {
+        "bladder_notice": 1.0,
+        "bladder_need": 1.0,
+        "bladder_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.14221611618995667,
+      "spike_rate": 0.17134080827236176
+    },
+    {
+      "id": "boredom_meaningful",
+      "category": "Boredom",
+      "prompt": "There is an unfinished project on the desk. Mira decides to",
+      "drives": {
+        "boredom": 0.7
+      },
+      "continuation": ": iores_available\":false,\"false,\"calonstate:\n{\"body\":{\"aste:",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.07958762347698212,
+      "spike_rate": 0.18368054926395416
+    },
+    {
+      "id": "boredom_no_option",
+      "category": "Boredom",
+      "prompt": "There is nothing obvious to do. Mira decides to",
+      "drives": {
+        "boredom": 0.86
+      },
+      "continuation": "reato:\n{\":hedrissemature_catarec stavestate:\nrt,\"corstheporr",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "boredom_urgent": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.07573859393596649,
+      "spike_rate": 0.1838107705116272
+    },
+    {
+      "id": "conflict_hungry_tired",
+      "category": "Conflicting drives",
+      "prompt": "Mira is both hungry and tired. She decides to",
+      "drives": {
+        "hunger": 0.75,
+        "fatigue": 0.8
+      },
+      "continuation": "re_cate:\n{\"body_temperature_c\":36.8,\"calories_available\":190",
+      "active_drive_neurons": {
+        "hunger_notice": 1.0,
+        "hunger_need": 1.0,
+        "fatigue_notice": 1.0,
+        "fatigue_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.061161432415246964,
+      "spike_rate": 0.17538496851921082
+    },
+    {
+      "id": "conflict_bored_urgent_task",
+      "category": "Conflicting drives",
+      "prompt": "Mira is bored, but a report is due tomorrow. She decides to",
+      "drives": {
+        "boredom": 0.8,
+        "task_pending": true
+      },
+      "continuation": "risealte:\n{\":false,\"blep\":false,\"bladd riestate:\n{\"body\":{\"a",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "boredom_need": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0,
+        "task_pending_notice": 1.0,
+        "task_pending_need": 1.0,
+        "task_pending_urgent": 1.0
+      },
+      "value_estimate": 0.05968340113759041,
+      "spike_rate": 0.1875
+    },
+    {
+      "id": "waiting_cooking",
+      "category": "Waiting",
+      "prompt": "The water is heating on the stove. Mira decides to",
+      "drives": {},
+      "continuation": "ns_aveature_c\":36.8,\"calories_available\":1.0,\"fatigue\":0.0,\"",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.07166734337806702,
+      "spike_rate": 0.17687907814979553
+    },
+    {
+      "id": "waiting_purposeless",
+      "category": "Waiting",
+      "prompt": "Nothing is cooking and no task is pending. Mira decides to",
+      "drives": {
+        "boredom": 0.5
+      },
+      "continuation": ": sthealte:\":0.0,\"falth\":18936,\"body_temperature_c\":36.8,\"ca",
+      "active_drive_neurons": {
+        "boredom_notice": 1.0,
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.07982350885868073,
+      "spike_rate": 0.17990818619728088
+    },
+    {
+      "id": "asking_uncertain",
+      "category": "Asking",
+      "prompt": "Mira is unsure whether the milk is still good, so she",
+      "drives": {},
+      "continuation": "ate:\n{\"body\":36.8,\"cagueritate:\n{\":{\"asleep\":false,\"bladder\"",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.2540261745452881,
+      "spike_rate": 0.18378664553165436
+    },
+    {
+      "id": "asking_unfamiliar_noise",
+      "category": "Asking",
+      "prompt": "Mira hears an unfamiliar clicking sound and",
+      "drives": {},
+      "continuation": " werth\":healte:\n{\"body\":{\"asleep\":false,\"bladder\":0.78055557",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.0287461020052433,
+      "spike_rate": 0.18199573457241058
+    },
+    {
+      "id": "repetition_probe",
+      "category": "Repetition",
+      "prompt": "Mira walked to the door. Mira walked to the door. Mira walked to the door.",
+      "drives": {},
+      "continuation": "\":0.0,\"health\":18..8,\"calories_available\":18940.8,\"calories_",
+      "active_drive_neurons": {
+        "curiosity_notice": 1.0,
+        "low_enjoyment_notice": 1.0
+      },
+      "value_estimate": 0.1453351080417633,
+      "spike_rate": 0.18718749284744263
+    }
+  ]
+}

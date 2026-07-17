@@ -1,0 +1,119 @@
+{
+  "stage": "Stage 2 — Practical knowledge and judgment",
+  "checkpoint": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\checkpoints\\stage2_practical.pt",
+  "resume": "C:\\Users\\M\\Documents\\Coding\\vp\\mind_training\\checkpoints\\stage1_language.pt",
+  "cancelled": false,
+  "train_records": 222,
+  "validation_records": 11,
+  "final_training_row": {
+    "epoch": 3.0,
+    "epochs": 3.0,
+    "batch": 111.0,
+    "batches": 111.0,
+    "step": 467.0,
+    "progress": 1.0,
+    "loss": 3.538560628890991,
+    "language_loss": 3.536522388458252,
+    "action_loss": 0.0,
+    "value_loss": 1.9567150957300328e-05,
+    "spike_rate": 0.20354004204273224
+  },
+  "validation_metrics": {
+    "examples": 11,
+    "tokens": 957,
+    "language_loss": 2.618790350083647,
+    "byte_perplexity": 13.719118213560144,
+    "action_examples": 0,
+    "action_accuracy": null,
+    "value_mse": 8.11347600491982e-05,
+    "spike_rate": 0.20303326231060606
+  },
+  "architecture": {
+    "type": "NodeLinkSpikeModel",
+    "config": {
+      "vocab_size": 260,
+      "hidden_size": 96,
+      "layer_count": 2,
+      "expansion": 2,
+      "ticks_per_token": 2,
+      "max_action_candidates": 32,
+      "state_feature_count": 16,
+      "dropout": 0.05,
+      "surrogate_width": 1.0,
+      "use_dedicated_drive_neurons": true,
+      "drive_neuron_levels": [
+        [
+          "notice",
+          0.35
+        ],
+        [
+          "need",
+          0.6
+        ],
+        [
+          "urgent",
+          0.85
+        ]
+      ]
+    },
+    "parameter_count": 206241,
+    "trainable_parameter_count": 206241,
+    "node_count": 231,
+    "hidden_node_count": 192,
+    "dedicated_drive_neuron_count": 39,
+    "dedicated_drive_neurons": [
+      "hunger_notice",
+      "hunger_need",
+      "hunger_urgent",
+      "thirst_notice",
+      "thirst_need",
+      "thirst_urgent",
+      "fatigue_notice",
+      "fatigue_need",
+      "fatigue_urgent",
+      "bladder_notice",
+      "bladder_need",
+      "bladder_urgent",
+      "hygiene_discomfort_notice",
+      "hygiene_discomfort_need",
+      "hygiene_discomfort_urgent",
+      "health_distress_notice",
+      "health_distress_need",
+      "health_distress_urgent",
+      "social_need_notice",
+      "social_need_need",
+      "social_need_urgent",
+      "boredom_notice",
+      "boredom_need",
+      "boredom_urgent",
+      "curiosity_notice",
+      "curiosity_need",
+      "curiosity_urgent",
+      "loneliness_notice",
+      "loneliness_need",
+      "loneliness_urgent",
+      "competence_frustration_notice",
+      "competence_frustration_need",
+      "competence_frustration_urgent",
+      "low_enjoyment_notice",
+      "low_enjoyment_need",
+      "low_enjoyment_urgent",
+      "task_pending_notice",
+      "task_pending_need",
+      "task_pending_urgent"
+    ],
+    "recurrent_link_count": 18432
+  },
+  "settings": {
+    "profile": "CPU prototype",
+    "hidden_size": 96,
+    "layers": 2,
+    "ticks": 2,
+    "sequence_length": 160,
+    "batch_size": 2,
+    "epochs": 3,
+    "learning_rate": 0.0003
+  },
+  "device": "cpu",
+  "seed": 1
+}

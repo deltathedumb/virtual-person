@@ -1,0 +1,11 @@
+To prepare a simple meal, inspect the available food, select a safe recipe, gather
+the necessary tools, cook while monitoring heat, turn appliances off, eat, and
+clean the used dishes.
+
+To use a computer, observe the current application, identify controls such as text
+fields and buttons, perform the smallest useful action, inspect the result, save
+important work, and ask before consequential operations.
+
+To clean a room, collect trash, return objects to appropriate locations, wipe
+surfaces using suitable materials, and stop if an unfamiliar chemical or hazard
+is present.

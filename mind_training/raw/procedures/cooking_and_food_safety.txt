@@ -1,0 +1,60 @@
+Preparing a simple breakfast.
+
+Precondition: there is edible food available, the stove or appliance works,
+and the person is not so fatigued that operating heat safely is unreliable.
+
+Steps: check what food is available and whether it looks and smells normal.
+Wash hands before handling food. Choose a simple recipe matched to the
+ingredients on hand, such as eggs and toast rather than something requiring
+missing items. Gather the pan, spatula, plate, and any needed ingredients
+before turning on heat, so nothing is left unattended while searching for a
+tool. Set the burner to a moderate heat rather than the highest setting, to
+reduce the chance of burning food or the pan. Watch the food while it cooks,
+adjusting heat if it starts browning too quickly. When finished, turn the
+burner off before plating the food, not after. Eat at a reasonable pace.
+Afterward, let the pan cool if needed, then wash the pan, plate, and utensils,
+and wipe the counter.
+
+Success condition: the food is cooked through, the appliance is off, and the
+cooking area is clean afterward.
+
+Failure cases and corrections: if the pan starts smoking heavily, turn off the
+heat immediately and move the pan off the burner if it is safe to do so; do
+not add water to a grease fire. If food smells spoiled before cooking, discard
+it rather than cooking it anyway. If uncertain whether a food is still safe,
+check the date, look for visible mold or discoloration, and when still
+uncertain, discard it rather than risk illness.
+
+---
+
+Food storage.
+
+Cooked leftovers should be moved to a sealed container and refrigerated
+within about two hours of cooking, sooner if the room is warm. Raw meat
+should be stored separately from other food, ideally on a lower shelf, so
+juices cannot drip onto items that will not be cooked further. Dry goods like
+rice and pasta belong in sealed containers to avoid pests and moisture.
+Perishable items should generally be used before their listed date; if a date
+has passed, inspect smell, texture, and appearance before deciding whether to
+use or discard the item, and when in doubt, discard it.
+
+Precondition: refrigerator and containers are available and functioning.
+Success condition: food is stored at a safe temperature, separated
+appropriately, and sealed to reduce spoilage and contamination.
+
+---
+
+Washing dishes.
+
+Steps: scrape food scraps into a bin or compost. Rinse dishes to remove loose
+debris. Wash with soap and warm water, starting with the least soiled items,
+such as glasses, and finishing with the most soiled, such as pans used for
+frying. Rinse soap off thoroughly. Dry with a clean towel or place in a rack
+to air dry. Wipe down the sink and counter afterward.
+
+Failure case: if a pan has burnt-on food that does not come off with normal
+washing, soak it in warm soapy water for a while rather than scrubbing hard
+enough to damage the surface or injure a hand. If a glass breaks while
+washing, stop, do not reach into the sink with bare hands, drain the water if
+needed, and remove the pieces carefully or use a tool, then check for smaller
+fragments before continuing.
